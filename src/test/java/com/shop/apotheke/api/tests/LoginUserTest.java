@@ -1,18 +1,18 @@
-package com.shop.apotheke.tests;
+package com.shop.apotheke.api.tests;
 
-import com.shop.apotheke.dto.ErrorResponseDTO;
-import com.shop.apotheke.dto.LoginDTO;
-import com.shop.apotheke.dto.LoginResponseDTO;
-import com.shop.apotheke.setup.BaseTest;
+import com.shop.apotheke.api.dto.ErrorResponseDTO;
+import com.shop.apotheke.api.dto.LoginDTO;
+import com.shop.apotheke.api.dto.LoginResponseDTO;
+import com.shop.apotheke.api.setup.BaseTest;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.shop.apotheke.contants.Checks.*;
-import static com.shop.apotheke.contants.Credentials.DEFAULT_CUSTOMER_NUMBER;
-import static com.shop.apotheke.contants.Credentials.DEFAULT_CUSTOMER_PASSWORD;
-import static com.shop.apotheke.contants.Endpoints.LOGIN_ENDPOINT;
+import static com.shop.apotheke.api.contants.Checks.*;
+import static com.shop.apotheke.api.contants.Credentials.DEFAULT_CUSTOMER_NUMBER;
+import static com.shop.apotheke.api.contants.Credentials.DEFAULT_CUSTOMER_PASSWORD;
+import static com.shop.apotheke.api.contants.Endpoints.LOGIN_ENDPOINT;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 

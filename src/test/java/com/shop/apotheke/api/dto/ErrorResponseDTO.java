@@ -1,4 +1,4 @@
-package com.shop.apotheke.dto;
+package com.shop.apotheke.api.dto;
 
 public class ErrorResponseDTO {
     private Integer statusCode;
