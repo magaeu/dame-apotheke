@@ -1,4 +1,4 @@
-package com.shop.apotheke.contants;
+package com.shop.apotheke.api.contants;
 
 public class Credentials {
     public static final String DEFAULT_CUSTOMER_NUMBER = "123456789";

@@ -1,4 +1,4 @@
-package com.shop.apotheke.contants;
+package com.shop.apotheke.api.contants;
 
 public class Checks {
     public static final String CHECK_TOKEN = "check token";

@@ -1,4 +1,4 @@
-package com.shop.apotheke.contants;
+package com.shop.apotheke.api.contants;
 
 public class Endpoints {
     public static final String COM_TENANT_ROOT = "/com";
