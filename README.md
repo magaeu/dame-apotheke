@@ -1,2 +1,2 @@
 # dame-apotheke
-a testing project with api and ui automate tests
+a testing project with api and ui automated tests
