@@ -10,7 +10,7 @@ ext {
     assertJVersion = "3.23.1"
     restAssuredVersion = "5.1.1"
     junitVersion = '5.9.0'
-    seleniumVersion = "4.1.3"
+    seleniumVersion = '4.3.0'
     testSource = "src/test/java/com/shop/apotheke"
 }
 
@@ -18,65 +18,23 @@ repositories {
     mavenCentral()
 }
 
-testing {
-    suites {
-        test {
-            useJUnitJupiter()
-        }
-
-        apiTest(JvmTestSuite) {
-            sources {
-                java {
-                    srcDirs = ["${testSource}/api"]
-                }
-            }
-
-            dependencies {
-                implementation "io.rest-assured:rest-assured:${restAssuredVersion}"
-                implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}"
-                implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-                implementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-                implementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
-                implementation "org.assertj:assertj-core:${assertJVersion}"
-            }
-
-            targets {
-                all {
-                    testTask.configure {
-                        shouldRunAfter(test)
-                    }
-                }
-            }
-        }
-
-        uiTest(JvmTestSuite) {
-            sources {
-                java {
-                    srcDirs = ["${testSource}/ui"]
-                }
-            }
-
-            dependencies {
-                implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
-                implementation "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumVersion}"
-                implementation "org.seleniumhq.selenium:selenium-firefox-driver:${seleniumVersion}"
-                implementation "org.seleniumhq.selenium:selenium-support:${seleniumVersion}"
-                implementation "org.seleniumhq.selenium:selenium-api:${seleniumVersion}"
-                implementation "io.github.bonigarcia:webdrivermanager:5.2.0"
-            }
-
-            targets {
-                all {
-                    testTask.configure {
-                        shouldRunAfter(test)
-                    }
-                }
-            }
-        }
-    }
+dependencies {
+    testImplementation(
+            "io.rest-assured:rest-assured:${restAssuredVersion}",
+            "io.rest-assured:json-schema-validator:${restAssuredVersion}",
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}",
+            "org.junit.jupiter:junit-jupiter-engine:${junitVersion}",
+            "org.junit.jupiter:junit-jupiter-params:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.seleniumhq.selenium:selenium-java:${seleniumVersion}",
+            "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumVersion}",
+            "org.seleniumhq.selenium:selenium-firefox-driver:${seleniumVersion}",
+            "org.seleniumhq.selenium:selenium-support:${seleniumVersion}",
+            "org.seleniumhq.selenium:selenium-api:${seleniumVersion}",
+            'io.github.bonigarcia:webdrivermanager:5.2.2'
+    )
 }
 
-tasks.named('check') {
-    dependsOn(testing.suites.apiTest)
-    dependsOn(testing.suites.uiTest)
+test {
+    useJUnitPlatform()
 }
