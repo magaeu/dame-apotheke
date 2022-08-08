@@ -22,4 +22,8 @@ public class Waiter {
         return wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator))).isDisplayed();
     }
+
+    public boolean urlToBe(String expectedUrl) {
+        return wait.until(ExpectedConditions.urlToBe(expectedUrl));
+    }
 }
