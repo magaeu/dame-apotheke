@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginPage extends BasePage {
 
-    private static final String SHOP_APOTHEKE_URL = "https://www.shop-apotheke.com";
     private static final String PAGE_TITLE = "Anmelden";
 
     public LoginPage(WebDriver driver) {
@@ -18,7 +17,7 @@ public class LoginPage extends BasePage {
     }
 
     public void goToLoginPage() {
-        driver.navigate().to(SHOP_APOTHEKE_URL + "/nx/login");
+        driver.navigate().to(BASE_SHOP_APOTHEKE_URL + "/nx/login");
         assertTrue(driver.getTitle().contains(PAGE_TITLE),
                 LOGIN_PAGE_ERROR);
         wait.presenceOfElement(BIN_EIN_MENSCH);
